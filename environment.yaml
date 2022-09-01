@@ -1,0 +1,9 @@
+name:
+  word_remember
+dependencies:
+  - python=3.8
+  - jupyter
+  - numpy
+  - loguru
+  - streamlit
+
