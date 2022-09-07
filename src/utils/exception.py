@@ -1,0 +1,3 @@
+class NonValidState(BaseException):
+    pass
+

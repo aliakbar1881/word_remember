@@ -5,5 +5,5 @@ dependencies:
   - jupyter
   - numpy
   - loguru
-  - streamlit
-
+  pip:
+    - PyQt5

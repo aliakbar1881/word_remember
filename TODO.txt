@@ -1,0 +1,3 @@
+- solve WordWindow class
+- add input to extend words to word_db
+- add button to move between words

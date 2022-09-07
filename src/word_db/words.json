@@ -1,10 +1,22 @@
-[
-	{
-		"word" : "forgetabble",
-	       	"definition" : "easily forgotten, especially through being uninteresting or mediocre."
-	},
-	{
-		"word" : "refuse",
-		"definition" : "indicate or show that one is not willing to do something."
-	}
-]
+{
+	"words":
+	[
+		{
+			"word" : "forgettable",
+			"definition" : "easily forgotten, especially through being uninteresting or mediocre."
+		},
+		{
+			"word" : "refuse",
+			"definition" : "indicate or show that one is not willing to do something."
+		},
+		{
+			"word" : "proud",
+			"definition" : "feeling deep pleasure or satisfaction as a result of one's own achievements, qualities, or possessions or those of someone with whom one is closely associated."
+		},
+		{
+			"word" : "object",
+			"definition" : "a person or thing to which a specified action or feeling is directed."
+		}
+	],
+	"state": 0
+}
