@@ -1,14 +1,29 @@
-from src.utils.IO import r_json
+"""
+define generator function that yeild a word in each step
+"""
+from requests import Session
+from src.utils.IOtmp import r_json
 
-def words(num):
-    words = []
+
+def word_generator():
+    """
+    generator
+    """
     _ = r_json("src/word_db/words.json")
-    state = _['state']
     for i, word in enumerate(_['words'], 1):
-        print(i, word, sep=" = = ")
-        words.append(word)
-        if i == (state + num):
-            return words
+        yield word
+        _['state'] += 1
+
+def add_new_word(word: str):
+    """
+    add new word to DB
+    """
+    #TODO: fetch words data from web
+    #TODO: add new word and data to DB
+    return True
+
 
 if __name__ == "__main__":
-    words()
+    word = word_generator()
+    next(word)
+    next(word)
