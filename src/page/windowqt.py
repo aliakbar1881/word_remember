@@ -32,7 +32,7 @@ class WordWindow(QMainWindow):
         # add main window of app
         main_layout = QVBoxLayout()
         # add label to pay attention
-        self.attention= QLabel("Don't forget reading words")
+        self.attention = QLabel("Don't forget reading words")
         font = self.attention.font()
         font.setPointSize(18)
         self.attention.setFont(font)
@@ -51,8 +51,8 @@ class WordWindow(QMainWindow):
         self.new_word_input.textChanged.connect(self._input_text_changed)
         self.new_word_input.returnPressed.connect(self.press_enter_key)
         self.new_word = None
-        # new_word_input
         main_layout.addWidget(self.new_word_input)
+        # Words Content
         word_content = self.word_content()
         main_layout.addLayout(word_content)
         main_layout.setAlignment(Qt.AlignmentFlag.AlignHCenter)
@@ -89,19 +89,18 @@ class WordWindow(QMainWindow):
         layout = QVBoxLayout()
         word_label = QLabel(word.get('word', "Sth went wrong"))
         font = word_label.font()
-        font.setPointSize(14)
+        font.setPointSize(20)
         word_label.setFont(font)
-        word_label.setAlignment(
-            Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop
-        )
         word_label.setFixedWidth(WINDOW_WIDTH / 3)
+        word_label.setAlignment(Qt.AlignmentFlag.AlignHCenter)
         layout.addWidget(word_label)
         definition = QLabel()
         font = definition.font()
-        font.setPointSize(10)
+        font.setPointSize(15)
         definition.setFont(font)
         definition.setText(word.get('definition', 'Sth went wrong'))
         definition.setFixedSize(QSize(WINDOW_WIDTH / 3, 400))
+        definition.setWordWrap(True)
         layout.addWidget(definition)
         return layout
 
@@ -115,7 +114,11 @@ class WordWindow(QMainWindow):
         """
         new_word_input return key pressed
         """
-        print("Return key pressed")
         result = add_new_word(self.new_word)
-        self.attention.setText("Success" if result else "Falied")
+        if result:
+            self.attention.setText("Successed")
+            self.attention.setStyleSheet('color: green')
+        else:
+            self.attention.setText('Failed')
+            self.attention.setStyleSheet('color: red')
         self.new_word_input.clear()
